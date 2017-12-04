@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IngosTech7._0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="IngosTech7.0" Width="400" SizeToContent="Height" Background="#FFF0F0F0" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Строка для вычисления:" Grid.ColumnSpan="2"/>
+        <TextBox Grid.Row="1" Text="((index	- ex) - d) + gst * osr + (an + k + oh) / (n + o)" Height="60" TextWrapping="Wrap" x:Name="textBoxEntered" Grid.ColumnSpan="2"/>
+        <Button Grid.Column="0" Grid.Row="2" Content="Описание" Click="Button_Click_Info" Margin="0,10" Width="85"/>
+        <Button Grid.Column="1" Grid.Row="2" Content="Вычислить" Click="Button_Click" Margin="0,10" Width="85"/>
+        <TextBlock Grid.Row="3" Text="Результат:" Grid.ColumnSpan="2"/>
+        <TextBox Grid.Row="4" IsReadOnly="True" Height="60" TextWrapping="Wrap" x:Name="textBoxResult" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

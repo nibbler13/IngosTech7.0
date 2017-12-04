@@ -21,5 +21,24 @@ namespace IngosTech7._0 {
 		public MainWindow() {
 			InitializeComponent();
 		}
+
+		private void Button_Click(object sender, RoutedEventArgs e) {
+			string enteredText = textBoxEntered.Text;
+
+			if (string.IsNullOrEmpty(enteredText) ||
+				string.IsNullOrWhiteSpace(enteredText)) {
+				textBoxResult.Text = string.Empty;
+				MessageBox.Show(this, "Введите строку для вычисления", "", 
+					MessageBoxButton.OK, MessageBoxImage.Information);
+				return;
+			}
+			
+			textBoxResult.Text = Parser.ParseString(enteredText);
+		}
+
+		private void Button_Click_Info(object sender, RoutedEventArgs e) {
+			WindowAbout windowAbout = new WindowAbout() { Owner = this };
+			windowAbout.ShowDialog();
+		}
 	}
 }

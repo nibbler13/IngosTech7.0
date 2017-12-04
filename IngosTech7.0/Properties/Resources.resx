@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,60 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="StringAbout" xml:space="preserve">
+    <value>Тестовое задание для INGOS TECH 7.0
+хакатона
+
+Написать на любом языке программирования калькулятор для вычисления выражения.
+
+Выражение вводится в программу в виде единой строки.
+
+Выражение может содержать операнды, 4 арифметических оператора – сложение (+), вычитание (-),  
+умножение (*) и деление (/), а также скобки произвольного уровня вложенности.
+
+Приоритеты операций стандартные, порядок выполнения – слева направо с учетом приоритетов и скобок. В 
+качестве операндов используются не числа, а строки, состоящие из непробельных символов . Между 
+операндами и операторами допускаются пробелы.
+
+Принять, что выражение написано без синтаксических ошибок.
+
+Правила операций над строками следующие:
+
+• Сложение – к левой строке добавляется правая. Коммутативность не поддерживается. Пример: 
+o abc + xyz = abcxyz.
+o xyz + abc = xyzabc.
+
+• Вычитание – если левая строка оканчивается на правую, левая строка укорачивается на длину правой. 
+Пример: 
+o abcxyz - xyz = abc.
+o abc - xyz = abc.
+o abcxyzd - xyz = abcxyzd.
+
+• Умножение – результирующая строка получается поочередной вставкой символов правой строки 
+после соответствующих символов левой строки. Первый символ правой строки вставляется после 
+первого символа левой строки, второй символ – после второго и т.д.. Остаток (левой или правой 
+строки) добавляется в конец результирующей строки. Коммутативность не поддерживается. Примеры: 
+o abc * xyz = axbycz; 
+o abc * xyzps = axbyczps; 
+o abcde * xyz = axbyczde;
+
+• Деление – если символы правой строки присутствуют в левой на соответствующих местах обратно 
+алгоритму умножения, они удаляются из левой. То есть первый символ правой строки присутствует на 
+втором месте в левой, второй символ правой строки – на четвертом месте в левой и т.д. Примеры: 
+o abc / xyz = abc; 
+o axbycz / xyz = abc; 
+o axbyczps / xyz = abcps; 
+
+Результатом должен быть исходный код и исполняемая программа для возможности тестирования 
+выражений.
+
+Пример для проверки:
+
+((index - ex) - d) + gst * osr + (an + k + oh) / (n + o) = ingosstrakh</value>
+  </data>
 </root>
