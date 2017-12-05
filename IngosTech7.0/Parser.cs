@@ -176,7 +176,7 @@ namespace IngosTech7._0 {
 				case "+":
 					return operand1 + operand2;
 				case "-":
-					if (operand1.EndsWith(operand1))
+					if (operand1.EndsWith(operand2))
 						return operand1.Substring(0, operand1.Length - operand2.Length);
 					else
 						return operand1;
